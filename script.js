@@ -1,6 +1,9 @@
 let selectedBarber = "";
 let selectedTime = "";
 
+const API_URL =
+"https://script.google.com/macros/s/AKfycbzD66_BA8Zc95bN8U3JT3F0LWZAaNUSARn_tLW4a3n5HG_eghlhGW_80JR0peel9ZhBVA/exec";
+
 function selectBarber(barber) {
     selectedBarber = barber;
     alert("Ընտրված վարպետը՝ " + barber);
@@ -21,7 +24,7 @@ document.querySelectorAll(".time-btn").forEach(button => {
     });
 });
 
-document.getElementById("bookingForm").addEventListener("submit", function(e) {
+document.getElementById("bookingForm").addEventListener("submit", async function(e) {
 
     e.preventDefault();
 
@@ -44,14 +47,29 @@ document.getElementById("bookingForm").addEventListener("submit", function(e) {
         return;
     }
 
-    alert(
-        "Ամրագրումը հաստատված է!\n\n" +
-        "Վարպետ՝ " + selectedBarber + "\n" +
-        "Ամսաթիվ՝ " + date + "\n" +
-        "Ժամ՝ " + selectedTime + "\n" +
-        "Անուն՝ " + name + "\n" +
-        "Հեռախոս՝ " + phone
-    );
+    const booking = {
+        date: date,
+        time: selectedTime,
+        barber: selectedBarber,
+        name: name,
+        phone: phone
+    };
 
-    this.reset();
+    try {
+
+        await fetch(API_URL, {
+            method: "POST",
+            body: JSON.stringify(booking)
+        });
+
+        alert("Ամրագրումը հաջողությամբ գրանցվեց");
+
+        this.reset();
+
+    } catch(err) {
+
+        alert("Սխալ գրանցման ժամանակ");
+
+    }
+
 });
