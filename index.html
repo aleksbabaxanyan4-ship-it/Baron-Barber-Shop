@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baron Barber Shop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="hero">
+        <h1>BARON BARBER SHOP</h1>
+        <p>Օնլայն ամրագրում</p>
+    </header>
+
+    <section class="booking-container">
+
+        <h2>Ընտրեք վարպետին</h2>
+
+        <div class="barbers">
+            <div class="barber-card">
+                <h3>Սուրեն</h3>
+                <button onclick="selectBarber('Սուրեն')">
+                    Ընտրել
+                </button>
+            </div>
+
+            <div class="barber-card">
+                <h3>Ալբերտ</h3>
+                <button onclick="selectBarber('Ալբերտ')">
+                    Ընտրել
+                </button>
+            </div>
+        </div>
+
+        <h2>Ընտրեք ամսաթիվը</h2>
+        <input type="date" id="date">
+
+        <h2>Ազատ ժամեր</h2>
+
+        <div class="times">
+            <button class="time-btn">10:00</button>
+            <button class="time-btn">10:30</button>
+            <button class="time-btn">11:00</button>
+            <button class="time-btn">11:30</button>
+            <button class="time-btn">12:00</button>
+            <button class="time-btn">12:30</button>
+            <button class="time-btn">13:00</button>
+            <button class="time-btn">13:30</button>
+            <button class="time-btn">14:00</button>
+            <button class="time-btn">14:30</button>
+            <button class="time-btn">15:00</button>
+            <button class="time-btn">15:30</button>
+            <button class="time-btn">16:00</button>
+            <button class="time-btn">16:30</button>
+            <button class="time-btn">17:00</button>
+            <button class="time-btn">17:30</button>
+            <button class="time-btn">18:00</button>
+            <button class="time-btn">18:30</button>
+            <button class="time-btn">19:00</button>
+            <button class="time-btn">19:30</button>
+            <button class="time-btn">20:00</button>
+            <button class="time-btn">20:30</button>
+        </div>
+
+        <h2>Ձեր տվյալները</h2>
+
+        <form id="bookingForm">
+            <input type="text" placeholder="Անուն" required>
+
+            <input type="tel" placeholder="Հեռախոսահամար" required>
+
+            <button type="submit" class="book-btn">
+                Հաստատել ամրագրումը
+            </button>
+        </form>
+
+    </section>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
